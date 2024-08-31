@@ -3,10 +3,13 @@ body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(to bottom, #2c3e50, #4ca1af);
     color: #ffffff;
-    min-height:  100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Contenedor principal */
@@ -14,7 +17,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 90%;
+    max-width: 1200px;
     height: 90vh;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     background-color: rgba(0, 0, 0, 0.5);
@@ -28,14 +32,14 @@ body {
 .image-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    flex-grow: 1;  /* Permite que la galería crezca y ocupe el espacio disponible */
-    gap: 2vh;  /* Usa valores relativos para el espacio entre los elementos */
+    flex-grow: 1;
+    gap: 2vh;
     width: 90%;
-    height: 90%;
+    height: 100%;
     align-items: center;
     justify-items: center;
+    box-sizing: border-box;
 }
-
 
 /* Elemento individual de la galería */
 .image-item {
@@ -50,7 +54,7 @@ body {
     opacity: 0;
     transition: transform 0.6s ease-out, opacity 0.6s ease-out;
     width: 100%;
-    height: 97%;
+    height: 100%;
     box-sizing: border-box;
 }
 
@@ -69,10 +73,54 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 1rem;
 }
 
 /* Animaciones al cargar la página */
 .loaded .image-item {
     transform: translateY(0);
     opacity: 1;
+}
+
+/* Media queries para asegurar que el diseño sea responsive en dispositivos más pequeños */
+@media (max-width: 768px) {
+    .container {
+        height: auto;
+        width: 95%;
+    }
+
+    .image-gallery {
+        grid-template-columns: 1fr; /* Cada elemento ocupa toda la fila */
+        gap: 2vh;  /* Mantiene el espacio entre los elementos */
+    }
+
+    .image-item img {
+        object-fit: contain;
+        height: 25vh; /* Ajusta la altura de las imágenes para pantallas más pequeñas */
+    }
+
+    .image-item p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: auto;
+        width: 100%;
+    }
+
+    .image-gallery {
+        grid-template-columns: 1fr; /* Cada elemento ocupa toda la fila */
+        gap: 2vh;  /* Mantiene el espacio entre los elementos */
+    }
+
+    .image-item img {
+        object-fit: contain;
+        height: 20vh; /* Ajusta la altura de las imágenes para pantallas más pequeñas */
+    }
+
+    .image-item p {
+        font-size: 0.8rem;
+    }
 }
