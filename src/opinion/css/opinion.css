@@ -1,0 +1,78 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #2c3e50, #4ca1af);
+    color: #ffffff;
+    min-height:  100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    box-sizing: border-box;
+}
+
+/* Galería de imágenes */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    flex-grow: 1;  /* Permite que la galería crezca y ocupe el espacio disponible */
+    gap: 2vh;  /* Usa valores relativos para el espacio entre los elementos */
+    width: 90%;
+    height: 90%;
+    align-items: center;
+    justify-items: center;
+}
+
+
+/* Elemento individual de la galería */
+.image-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transform: translateY(10vh);
+    opacity: 0;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    width: 100%;
+    height: 97%;
+    box-sizing: border-box;
+}
+
+.image-item img {
+    width: 100%;
+    height: 18vh;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.image-item p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Animaciones al cargar la página */
+.loaded .image-item {
+    transform: translateY(0);
+    opacity: 1;
+}
